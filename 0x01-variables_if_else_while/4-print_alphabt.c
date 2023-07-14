@@ -18,8 +18,8 @@ int main(void)
 		{
 			putchar(letter);
 		}
-		putchar('\n');
 		letter++;
 	}
+	putchar('\n');
 	return (0);
 }
