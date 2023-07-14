@@ -9,17 +9,20 @@
  */
 int main(void)
 {
-	char letter;
+	char lower, upper;
 
-	letter = 'a';
-	while (letter <= 'z')
+	lower = 'a';
+	upper = 'A';
+	while (lower <= 'z')
 	{
-		if (letter != 'q' && letter != 'e')
-		{
-			putchar(letter);
-		}
-		putchar('\n');
-		letter++;
+		putchar(lower);
+		lower++;
 	}
+	while (upper <= 'Z')
+	{
+		putchar(upper);
+		upper++;
+	}
+	putchar('\n');
 	return (0);
 }
