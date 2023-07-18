@@ -4,14 +4,14 @@
  * _islower - Entry point
  *
  * Description: 'Checks for lowercase character'
- *
- * Return: Always 0 (Success)
+ * @c: Character to be checked
+ * Return: 1 if lowercase, 0 otherwise
  */
 int _islower(int c)
 {
 	if (islower(c))
 	{
 		return (1);
-	} else 
+	} else
 		return (0);
 }
