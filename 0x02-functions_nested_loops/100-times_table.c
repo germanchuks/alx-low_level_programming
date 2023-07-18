@@ -19,7 +19,7 @@ void print_times_table(int n)
 			while (j <= n)
 			{
 				int mult = j * i;
-				
+
 				if (j != 0)
 					_putchar(' ');
 				if (mult >= 10 && mult < 100)
@@ -41,9 +41,7 @@ void print_times_table(int n)
 					_putchar(mult + '0');
 				}
 				if (j != n)
-				{
 					_putchar(',');
-				}
 				j++;
 			}
 			_putchar('\n');
