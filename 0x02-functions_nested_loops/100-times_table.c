@@ -11,7 +11,7 @@ void print_times_table(int n)
 	int i, j;
 
 	i = 0;
-	if (n > 0 && n <= 15)
+	if (n >= 0 && n <= 15)
 		while (i <= n)
 		{
 			j = 0;
@@ -19,8 +19,9 @@ void print_times_table(int n)
 			while (j <= n)
 			{
 				int mult = j * i;
-
-				_putchar(' ');
+				
+				if (j != 0)
+					_putchar(' ');
 				if (mult >= 10 && mult < 100)
 				{
 					_putchar(' ');
