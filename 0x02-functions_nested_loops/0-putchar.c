@@ -15,9 +15,9 @@ int main(void)
 
 	while (count < length)
 	{
-		putchar(message[count]);
+		_putchar(message[count]);
 		count++;
 	}
-	putchar('\n');
+	_putchar('\n');
 	return (0);
 }
