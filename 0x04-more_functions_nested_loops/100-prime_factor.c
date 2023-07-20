@@ -25,7 +25,7 @@ int main(void)
 			printf("%d\n", i);
 			num /= i;
 		}
-		i+=2;
+		i += 2;
 	}
 	/*The remainder is a prime factor*/
 	if (num > 2)
