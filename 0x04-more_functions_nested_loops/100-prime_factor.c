@@ -8,15 +8,25 @@
  */
 int main(void)
 {
-	unsigned long i, num = 612852475143;
+	unsigned long i, max = -1, num = 612852475143;
 
-	for (i = 3; i < 782849; i += 2)
+	while (num % 2 == 0)
 	{
-		while ((n % i == 0) && (n != i))
+		max = 2;
+		num /= 2;
+	}
+
+	for (i = 3; i <= sqrt(n); i += 2)
+	{
+		while (num % i == 0)
 		{
-			n = n / i;
+			max = i;
+			num = num / i;
 		}
 	}
-	printf("%lu\n", n);
+	if (num > 2)
+		max = num;
+
+	printf("%lu\n", max);
 	return (0);
 }
