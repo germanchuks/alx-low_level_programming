@@ -3,45 +3,23 @@
  * print_number - Enry point
  * Description: 'Prints an integer'
  * @n: Number
+ * Return: Always 0
  */
 void print_number(int n)
 {
-	int revNum = 0;
-	int count = 0;
-	int tempNum = n;
+	unsigned int i;
 
-	if (n == 0)
-	{
-		_putchar('0');
-		return;
-	}
 	if (n < 0)
 	{
+		i = -n;
 		_putchar('-');
-		n = -n;
-	}
-
-	while (tempNum > 0)
+	} else
 	{
-		tempNum /= 10;
-		count++;
+		i = n;
 	}
-
-	/*Reverse the digits*/
-	while (count > 0)
+	if (i / 10)
 	{
-		int digit = n % 10;
-
-		revNum = revNum * 10 + digit;
-		n /= 10;
-		count--;
+		print_number(i / 10);
 	}
-
-	while (revNum > 0)
-	{
-		int digit = revNum % 10;
-
-		_putchar(digit + '0');
-		revNum /= 10;
-	}
+	_putchar((i % 10) + '0');
 }
