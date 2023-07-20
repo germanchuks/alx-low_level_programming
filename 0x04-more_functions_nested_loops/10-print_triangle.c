@@ -15,13 +15,13 @@ void print_triangle(int size)
 		while (i < size)
 		{
 			int j = size - i;
+			int count = 0;
 
 			while (j > 1)
 			{
 				_putchar(' ');
 				j--;
 			}
-			int count = 0;
 
 			while (count <= i)
 			{
