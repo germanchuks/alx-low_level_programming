@@ -8,29 +8,15 @@
  */
 int main(void)
 {
-	long num = 612852475143;
-	int i = 3;
+	unsigned long i, num = 612852475143;
 
-	/*Check for 2's that are prime factors*/
-	while (num % 2 == 0)
+	for (i = 3; i < 782849; i += 2)
 	{
-		printf("%d\n", 2);
-		num /= 2;
-	}
-	/*Check odd number prime factors*/
-	while (i * i <= num)
-	{
-		while (num % i == 0)
+		while ((n % i == 0) && (n != i))
 		{
-			printf("%d\n", i);
-			num /= i;
+			n = n / i;
 		}
-		i += 2;
 	}
-	/*The remainder is a prime factor*/
-	if (num > 2)
-	{
-		printf("%lu\n", num);
-	}
+	printf("%lu\n", n);
 	return (0);
 }
