@@ -2,8 +2,7 @@
 /**
  * print_number - Enry point
  * Description: 'Prints an integer'
- * @n: Diagonal count
- * Return: Returns 0
+ * @n: Number
  */
 void print_number(int n)
 {
