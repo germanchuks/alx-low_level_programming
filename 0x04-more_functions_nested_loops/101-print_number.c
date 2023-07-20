@@ -7,6 +7,10 @@
  */
 void print_number(int n)
 {
+	int revNum = 0;
+	int count = 0;
+	int tempNum = n;
+
 	if (n == 0)
 	{
 		_putchar('0');
@@ -17,9 +21,6 @@ void print_number(int n)
 		_putchar('-');
 		n = -n;
 	}
-	int revNum = 0;
-	int count = 0;
-	int tempNum = n;
 
 	while (tempNum > 0)
 	{
