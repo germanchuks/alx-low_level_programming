@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-	long int num = 612852475143;
+	long num = 612852475143;
 	int i = 3;
 
 	/*Check for 2's that are prime factors*/
@@ -30,7 +30,7 @@ int main(void)
 	/*The remainder is a prime factor*/
 	if (num > 2)
 	{
-		printf("%ld\n", num);
+		printf("%lu\n", num);
 	}
 	return (0);
 }
