@@ -9,11 +9,10 @@
 void print_rev(char *s)
 {
 	int str_len = strlen(s);
-	char str_array[str_len];
+	char str_array[50];
+	int i = str_len;
 
 	strcpy(str_array, s);
-
-	int i = str_len;
 
 	while (i >= 0)
 	{
