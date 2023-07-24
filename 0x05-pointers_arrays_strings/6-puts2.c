@@ -1,7 +1,7 @@
 #include "main.h"
 #include <string.h>
 /**
- * puts2 - Reverses string
+ * puts2 - Prints part of string
  *
  * @str: String
  * Return: Nothing.
