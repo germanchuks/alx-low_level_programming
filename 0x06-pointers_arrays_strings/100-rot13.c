@@ -1,8 +1,9 @@
-#include <string.h>
+#include "main.h"
+#include <stdio.h>
 /**
  * rot13 - Encodes strings using rot13
  * @n: String
- * Return: string
+ * Return: n
  */
 char *rot13(char *n)
 {
