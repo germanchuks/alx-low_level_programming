@@ -6,19 +6,24 @@
  */
 char *rot13(char *n)
 {
+	int i = 0;
 	char letters[] = "ABCDEDGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char rot_letters[] = "NOPQRSTUVWXYZABCDEDGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	for (int i = 0; n[i] != '\0'; i++)
+	while (n[i] != '\0')
 	{
-		for (int j = 0; j < 52; j++)
+		int j = 0;
+
+		while (j < 52)
 		{
 			if (n[i] == letters[j])
 			{
 				n[i] = rot_letters[j];
 				break;
 			}
+			j++;
 		}
+		i++;
 	}
 	return (n);
 }
