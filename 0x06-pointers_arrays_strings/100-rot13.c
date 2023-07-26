@@ -3,28 +3,29 @@
 /**
  * rot13 - Encodes strings using rot13
  * @n: String
- * Return: n
+ * Return: encoded string
  */
 char *rot13(char *n)
 {
 	int i = 0;
 	char letters[] = "ABCDEDGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char rot_letters[] = "NOPQRSTUVWXYZABCDEDGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char *ptr = s;
 
-	while (n[i] != '\0')
+	while (*n)
 	{
 		int j = 0;
 
-		while (j < 52)
+		while (j <= 52)
 		{
-			if (n[i] == letters[j])
+			if (*n == letters[j])
 			{
-				n[i] = rot_letters[j];
+				*n = rot_letters[j];
 				break;
 			}
 			j++;
 		}
-		i++;
+		n++;
 	}
-	return (n);
+	return (ptr);
 }
