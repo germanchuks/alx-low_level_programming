@@ -7,22 +7,22 @@
  */
 char *rot13(char *n)
 {
-	char letters[] = "ABCDEDGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char str_letters[] = "ABCDEDGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char rot_letters[] = "NOPQRSTUVWXYZABCDEDGHIJKLMnopqrstuvwxyzabcdefghijklm";
 	char *ptr = n;
 
 	while (*n)
 	{
-		int j = 0;
+		int i = 0;
 
-		while (j <= 52)
+		while (i <= 52)
 		{
-			if (*n == letters[j])
+			if (*n == str_letters[i])
 			{
-				*n = rot_letters[j];
+				*n = rot_letters[i];
 				break;
 			}
-			j++;
+			i++;
 		}
 		n++;
 	}
