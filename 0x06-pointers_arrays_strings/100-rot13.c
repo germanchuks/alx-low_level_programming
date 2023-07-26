@@ -7,10 +7,9 @@
  */
 char *rot13(char *n)
 {
-	int i = 0;
 	char letters[] = "ABCDEDGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char rot_letters[] = "NOPQRSTUVWXYZABCDEDGHIJKLMnopqrstuvwxyzabcdefghijklm";
-	char *ptr = s;
+	char *ptr = n;
 
 	while (*n)
 	{
