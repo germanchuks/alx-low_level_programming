@@ -6,20 +6,19 @@
  */
 char *rot13(char *n)
 {
-	int i = 0;
-	int str_len = strlen(n);
+	char letters[] = "ABCDEDGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char rot_letters[] = "NOPQRSTUVWXYZABCDEDGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	while (i <= str_len)
+	for (int i = 0; n[i] != '\0'; i++)
 	{
-		if (n[i] >= 'a' && n[i] <= 'z')
+		for (int j = 0; j < 52; j++)
 		{
-			n[i] = (n[i] - 'a' + 13) % 26 + 'a';
+			if (n[i] == letters[j])
+			{
+				n[i] = rot_letters[j];
+				break;
+			}
 		}
-		else if (n[i] >= 'A' && n[i] <= 'Z')
-		{
-			n[i] = (n[i] - 'A' + 13) % 26 + 'A';
-		}
-		i++;
 	}
 	return (n);
 }
