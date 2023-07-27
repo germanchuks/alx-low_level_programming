@@ -7,44 +7,44 @@
  */
 void print_buffer(char *b, int size)
 {
-	int count = (size / 10);
-	int i = 0;
+	int count = (size / 10), i = 0;
 
-	while (i <= count)
+	if (size > 0)
 	{
-		int j = i * 10;
-		int k = i * 10;
-
-		printf("%08x:", i * 10);
-
-		while (j < (i * 10) + 10)
+		while (i <= count)
 		{
-			if (j == size)
+			int j = i * 10, k = i * 10;
+
+			printf("%08x:", i * 10);
+			while (j < (i * 10) + 10)
 			{
-				printf("%10s", " ");
-				break;
+				if (j == size)
+				{
+					printf("%10s", " ");
+					break;
+				}
+				if (j % 2 == 0)
+					printf(" ");
+				if (b[j] == '\0')
+					printf("%02d", 0);
+				else if (j < size - 1)
+					printf("%02x", b[j]);
+				j++;
 			}
-			if (j % 2 == 0)
-				printf(" ");
-			if (b[j] == '\0')
-				printf("%02d", 0);
-			else if (j < size - 1)
-				printf("%02x", b[j]);
-			j++;
+			printf(" ");
+			while (k < (i * 10) + 10)
+			{
+				if (k == size)
+					break;
+				if ((b[k] >= 00 && b[k] <= 07) || b[k] == '\n' || b[k] == '\0')
+					printf(".");
+				else if (k < size - 1)
+					printf("%c", b[k]);
+				k++;
+			}
+			printf("\n");
+			i++;
 		}
-		printf(" ");
-
-		while (k < (i * 10) + 10)
-		{
-			if (k == size)
-				break;
-			if ((b[k] >= 00 && b[k] <= 07) || b[k] == '\n' || b[k] == '\0')
-				printf(".");
-			else if (k < size - 1)
-				printf("%c", b[k]);
-			k++;
-		}
-		printf("\n");
-		i++;
-	}
+	} else
+		print("\n");
 }
