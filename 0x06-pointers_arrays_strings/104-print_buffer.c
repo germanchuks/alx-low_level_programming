@@ -7,16 +7,16 @@
  */
 void print_buffer(char *b, int size)
 {
-	int count = (size / 10), i = 0;
+	int count = (size / 10) + 1, i = 0;
 
 	if (size > 0)
 	{
-		while (i <= count)
+		while (i < count)
 		{
 			int j = i * 10, k = i * 10;
 
 			printf("%08x:", i * 10);
-			while (j < (i * 10) + 10)
+			while (j < i * 10 + 10)
 			{
 				if (j == size)
 				{
@@ -25,20 +25,17 @@ void print_buffer(char *b, int size)
 				}
 				if (j % 2 == 0)
 					printf(" ");
-				if (b[j] == '\0')
-					printf("%02d", 0);
-				else if (j < size - 1)
-					printf("%02x", b[j]);
+				printf("%02x", (unsigned char)b[j]);
 				j++;
 			}
 			printf(" ");
-			while (k < (i * 10) + 10)
+			while (k < i * 10 + 10)
 			{
 				if (k == size)
 					break;
-				if ((b[k] >= 00 && b[k] <= 07) || b[k] == '\n' || b[k] == '\0')
+				if ((b[k] >= 0 && b[k] <= 7) || b[k] == '\n' || b[k] == '\0')
 					printf(".");
-				else if (k < size - 1)
+				else
 					printf("%c", b[k]);
 				k++;
 			}
