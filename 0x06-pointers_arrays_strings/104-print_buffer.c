@@ -8,11 +8,16 @@
 void print_buffer(char *b, int size)
 {
 	int count = (size / 10);
+	int i = 0;
 
-	for (int i = 0; i <= count; i++)
+	while (i <= count)
 	{
+		int j = i * 10;
+		int k = i * 10;
+
 		printf("%08x:", i * 10);
-		for (int j = i * 10; j < (i * 10) + 10; j++)
+
+		while (j < (i * 10) + 10)
 		{
 			if (j == size)
 			{
@@ -25,17 +30,21 @@ void print_buffer(char *b, int size)
 				printf("%02d", 0);
 			else if (j < size - 1)
 				printf("%02x", b[j]);
+			j++;
 		}
 		printf(" ");
-		for (int j = i * 10; j < (i * 10) + 10; j++)
+
+		while (k < (i * 10) + 10)
 		{
-			if (j == size)
+			if (k == size)
 				break;
-			if ((b[j] >= 00 && b[j] <= 07) || (b[j] == '\n' || b[j] == '\0'))
+			if ((b[k] >= 00 && b[k] <= 07) || b[k] == '\n' || b[k] == '\0')
 				printf(".");
-			else if (j < size - 1)
-				printf("%c", b[j]);
+			else if (k < size - 1)
+				printf("%c", b[k]);
+			k++;
 		}
 		printf("\n");
+		i++;
 	}
 }
