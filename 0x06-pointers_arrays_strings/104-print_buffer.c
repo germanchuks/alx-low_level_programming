@@ -1,7 +1,9 @@
+#include <stdio.h>
 /**
  * print_buffer - Prints a buffer
  * @b: String
  * @size: Size of string
+ * Return: Nothing
  */
 void print_buffer(char *b, int size)
 {
