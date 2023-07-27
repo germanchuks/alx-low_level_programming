@@ -1,9 +1,7 @@
-#include <stdio.h>
 /**
  * print_buffer - Prints a buffer
  * @b: String
  * @size: Size of string
- * Return: Nothing
  */
 void print_buffer(char *b, int size)
 {
@@ -45,6 +43,7 @@ void print_buffer(char *b, int size)
 			printf("\n");
 			i++;
 		}
-	} else
-		print("\n");
+	}
+	else
+		printf("\n");
 }
