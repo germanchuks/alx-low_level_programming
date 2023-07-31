@@ -1,8 +1,8 @@
 #include <string.h>
 /**
  * _memset - Fills buffer with a constant byte
- * @s: buffer
- * @b: constant byte
+ * @s: Pointer to buffer
+ * @b: constant byte to fill in buffer
  * @n: number of bytes to fill
  *
  * Return: Pointer to buffer.
