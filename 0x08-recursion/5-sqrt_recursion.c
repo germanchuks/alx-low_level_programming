@@ -22,7 +22,7 @@ int _calc_sqrt(int n, int min, int max)
 		}
 		else
 		{
-			return (_calc_sqrt((n, min, mid - 1)));
+			return (_calc_sqrt(n, min, mid - 1));
 		}
 	}
 	return (-1);
