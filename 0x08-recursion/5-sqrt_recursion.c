@@ -29,11 +29,13 @@ int _calc_sqrt(long n, int min, int max)
  */
 int _sqrt_recursion(int n)
 {
+	int result;
+
 	if (n < 0)
 	{
 		return (-1);
 	}
-	int result = _calc_sqrt(n, 0, n);
-
+	result = _calc_sqrt(n, 0, n);
+	
 	return ((result * result == n) ? result : -1);
 }
