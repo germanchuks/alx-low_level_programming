@@ -5,25 +5,19 @@
  * @max: Maximum range value
  * Return: Returns square root, or -1 if n does not have a natural square root.
  */
-int _calc_sqrt(int n, int min, int max)
+int _calc_sqrt(long n, int min, int max)
 {
 	if (min <= max)
 	{
 		int mid = min + (max - min) / 2;
-		int square = mid * mid;
+		int div = n / mid;
 
-		if (square == n)
-		{
+		if (mid == div)
 			return (mid);
-		}
-		else if (square < n)
-		{
+		else if (mid < div)
 			return (_calc_sqrt(n, mid + 1, max));
-		}
 		else
-		{
 			return (_calc_sqrt(n, min, mid - 1));
-		}
 	}
 	return (-1);
 }
@@ -39,5 +33,7 @@ int _sqrt_recursion(int n)
 	{
 		return (-1);
 	}
-	return (_calc_sqrt(n, 0, n));
+	int result = _calc_sqrt(n, 0, n);
+
+	return ((result * result == n) ? result : -1);
 }
