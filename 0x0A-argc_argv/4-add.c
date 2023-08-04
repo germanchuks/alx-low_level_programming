@@ -7,12 +7,13 @@
  * @argc: Argument count.
  * @argv: Argument vector.
  *
- * Return: 0 if argc is equal to 3, 1 if otherwise.
+ * Return: 0 if numbers can be added, 1 if otherwise.
  */
 int main(int argc, char **argv)
 {
+	int i = 0;
 	int count = 1;
-	int result;
+	int result = 0;
 
 	if (argc < 2)
 	{
@@ -22,10 +23,14 @@ int main(int argc, char **argv)
 
 	while (count < argc)
 	{
-		if (!isdigit(*argv[count]))
+		while (argv[count][i])
 		{
-			printf("Error\n");
-			return (1);
+			if (!isdigit(argv[count][i]))
+			{
+				printf("Error\n");
+				return (1);
+			}
+			i++;
 		}
 
 		result = result + atoi(argv[count]);
