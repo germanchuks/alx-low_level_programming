@@ -18,24 +18,23 @@ int **alloc_grid(int width, int height)
 
 	array_2D = (int **)malloc(height * sizeof(int *));
 
-	if (array_2D == NULL)
+	if (array_2D != NULL)
 	{
-		free(array_2D);
-		return (NULL);
-	}
-
-	while (i < height)
-	{
-		array_2D[i] = (int *)malloc(width * sizeof(int));
-
-		j = 0;
-		while (j < width)
+		while (i < height)
 		{
-			array_2D[i][j] = 0;
-			j++;
+			array_2D[i] = (int *)malloc(width * sizeof(int));
+
+			j = 0;
+			while (j < width)
+			{
+				array_2D[i][j] = 0;
+				j++;
+			}
+			i++;
 		}
-		i++;
+		return (array_2D);
 	}
 
-	return (array_2D);
+	free(array_2D);
+	return (NULL);
 }
