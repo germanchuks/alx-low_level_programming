@@ -10,35 +10,35 @@
  */
 char *argstostr(int ac, char **av)
 {
-	int i;
+	int i = 0;
 	int length = 0;
 	char *concat_str;
 
-	if (ac != 0 && av != NULL)
+	if (ac == 0 || av == NULL)
+		return (NULL);
+
+	while (i < ac)
 	{
-		while (i < ac)
-		{
-			length += strlen(av[i]);
-			i++;
-		}
-
-		concat_str = (char *)malloc(sizeof(char) * (length + ac + 1));
-
-		if (concat_str == NULL)
-			return (NULL);
-
-		concat_str[0] = '\0';
-
-		for (i = 0; i < ac; i++)
-		{
-			strcat(concat_str, av[i]);
-			if (i != ac - 1)
-			{
-				strcat(concat_str, "\n");
-			}
-		}
-
-		return (concat_str);
+		length += strlen(av[i]);
+		i++;
 	}
-	return (NULL);
+
+	concat_str = (char *)malloc(sizeof(char) * (length + ac + 1));
+
+	if (concat_str == NULL)
+		return (NULL);
+
+	concat_str[0] = '\0';
+
+	i = 0;
+	while (i < ac)
+	{
+		strcat(concat_str, av[i]);
+		if (i != ac - 1)
+		{
+			strcat(concat_str, "\n");
+		}
+		i++;
+	}
+	return (concat_str);
 }
