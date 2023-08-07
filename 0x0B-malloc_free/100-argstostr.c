@@ -34,10 +34,7 @@ char *argstostr(int ac, char **av)
 	while (i < ac)
 	{
 		strcat(concat_str, av[i]);
-		if (i != ac - 1)
-		{
-			strcat(concat_str, "\n");
-		}
+		strcat(concat_str, "\n");
 		i++;
 	}
 	return (concat_str);
