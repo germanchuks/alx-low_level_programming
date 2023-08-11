@@ -33,12 +33,12 @@ void checkForZero(char *argv[])
 	}
 }
 /**
- * initializeArray - set new array memory
+ * initArr - set new array memory
  * @array: Array.
  * @length: Length of the array.
  * Return: pointer of a char array.
  */
-char *initializeArray(char *array, int length)
+char *initArr(char *array, int length)
 {
 	int i = 0;
 
@@ -78,70 +78,45 @@ int getNumLength(char *argv[], int index)
  */
 int main(int argc, char *argv[])
 {
-	int lenNum1, lenNum2, lenResult, add, carry, i, j, k, shiftCount;
-	char *result;
+	int lNum1, lNum2, lRslt, add, carry, i, j, k, shCnt;
+	char *rslt;
 
 	if (argc != 3)
-	{
-		printf("Error\n");
-		exit(98);
-	}
-	lenNum1 = getNumLength(argv, 1);
-	lenNum2 = getNumLength(argv, 2);
-	checkForZero(argv);
-	lenResult = lenNum1 + lenNum2;
-	result = malloc(lenResult + 1);
-	if (result == NULL)
-	{
-		printf("Error\n");
-		exit(98);
-	}
-	result = initializeArray(result, lenResult);
-	k = lenResult - 1;
-	i = lenNum1 - 1;
-	j = lenNum2 - 1;
-	carry = shiftCount = 0;
+		printf("Error\n"), exit(98);
+	lNum1 = getNumLength(argv, 1), lNum2 = getNumLength(argv, 2);
+	checkForZero(argv), lRslt = lNum1 + lNum2, rslt = malloc(lRslt + 1);
+	if (rslt == NULL)
+		printf("Error\n"), exit(98);
+	rslt = initArr(rslt, lRslt), k = lRslt - 1, i = lNum1 - 1;
+	j = lNum2 - 1, carry = shCnt = 0;
 	while (k >= 0)
 	{
 		if (i < 0)
 		{
 			if (carry > 0)
 			{
-				add = (result[k] - '0') + carry;
+				add = (rslt[k] - '0') + carry;
 				if (add > 9)
-					result[k - 1] = (add / 10) + '0';
-				result[k] = (add % 10) + '0';
+					rslt[k - 1] = (add / 10) + '0';
+				rslt[k] = (add % 10) + '0';
 			}
-			i = lenNum1 - 1;
-			j--;
-			carry = 0;
-			shiftCount++;
-			k = lenResult - (1 + shiftCount);
+			i = lNum1 - 1, j--, carry = 0, shCnt++, k = lRslt - (1 + shCnt);
 		}
 		if (j < 0)
 		{
-			if (result[0] != '0')
+			if (rslt[0] != '0')
 				break;
-			lenResult--;
-			free(result);
-			result = malloc(lenResult + 1);
-			result = initializeArray(result, lenResult);
-			k = lenResult - 1;
-			i = lenNum1 - 1;
-			j = lenNum2 - 1;
-			carry = shiftCount = 0;
+			lRslt--, free(rslt), rslt = malloc(lRslt + 1), rslt = initArr(rslt, lRslt);
+			k = lRslt - 1, i = lNum1 - 1, j = lNum2 - 1, carry = shCnt = 0;
 		}
 		if (j >= 0)
 		{
-			add = ((argv[1][i] - '0') * (argv[2][j] - '0')) + (result[k] - '0') + carry;
-			carry = add / 10;
-			result[k] = (add % 10) + '0';
+			add = ((argv[1][i] - '0') * (argv[2][j] - '0')) + (rslt[k] - '0') + carry;
+			carry = add / 10, rslt[k] = (add % 10) + '0';
 		}
-		k--;
-		i--;
+		k--, i--;
 	}
-	printf("%s\n", result);
-	free(result);
+	printf("%s\n", rslt), free(rslt);
 	return (0);
 }
 
