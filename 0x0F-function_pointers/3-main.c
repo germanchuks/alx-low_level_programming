@@ -2,6 +2,13 @@
 #include <stdlib.h>
 #include "3-calc.h"
 
+/**
+ * main - Performs arithmetic operation on two numbers
+ * @argc: Argument count.
+ * @argv: Arguments.
+ *
+ * Return: 0
+ */
 int main(int argc, char *argv[])
 {
 	int a, b;
@@ -17,13 +24,13 @@ int main(int argc, char *argv[])
 
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
-	operator= argv[2];
+	operator = argv[2];
 
 	operation = get_op_func(operator);
 
 	if (operation)
 	{
-		if ((*operator== '/' || * operator== '%') && (b == 0))
+		if ((*operator == '/' || *operator == '%') && (b == 0))
 		{
 			printf("Error\n");
 			exit(100);
