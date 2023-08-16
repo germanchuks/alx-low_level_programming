@@ -1,3 +1,5 @@
+#include "function_pointers.h"
+
 /**
  * int_index - Searches for an integer in an array.
  * @array: Array to search.
@@ -11,15 +13,15 @@ int int_index(int *array, int size, int (*cmp)(int))
 	int index = 0;
 	int arr_cmp;
 
-	if (size > 0)
+	if (cmp == NULL || array == NULL || size <= 0)
+		return (-1);
+
+	while (index < size)
 	{
-		while (index < size)
-		{
-			arr_cmp = cmp(array[index]);
-			if (arr_cmp != 0)
-				return (index);
-			index++;
-		}
+		arr_cmp = cmp(array[index]);
+		if (arr_cmp != 0)
+			return (index);
+		index++;
 	}
 	return (-1);
 }
