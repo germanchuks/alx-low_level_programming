@@ -9,15 +9,16 @@
  */
 void print_all(const char *const format, ...)
 {
-	unsigned int i = 0;
+	int i = 0;
 	char *s;
 	char *separator = "";
 	va_list arg;
 
 	va_start(arg, format);
-	while (format[i])
+
+	if (format)
 	{
-		if (format)
+		while (format[i])
 		{
 			switch (format[i])
 			{
