@@ -1,8 +1,10 @@
+#include "lists.h"
+
 /**
  * free_listint - Frees a listint_t list.
  * @head: Pointer to head of the list.
  *
- * Return: Address of the new element, or NULL if it failed
+ * Return: Nothing.
  */
 void free_listint(listint_t *head)
 {
