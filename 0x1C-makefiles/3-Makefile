@@ -1,4 +1,4 @@
-# 2-Makefile
+# 3-Makefile
 
 # Compiler
 CC = gcc
@@ -12,8 +12,21 @@ OBJ = $(SRC:.c=.o)
 # Name of the executable
 NAME = school
 
+# Command to delete files
+RM = rm -f
+
 all: $(OBJ)
 	$(CC) $^ -o $(NAME)
 
 %.o: %.c
 	$(CC) -c -o $@ $<
+
+clean:
+	$(RM) $(NAME) *~ \#*
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean: clean oclean
+
+re: oclean all
