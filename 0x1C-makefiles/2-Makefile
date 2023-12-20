@@ -1,0 +1,19 @@
+# 2-Makefile
+
+# Compiler
+CC = gcc
+
+# Source files
+SRC = main.c school.c
+
+# Object files
+OBJ = $(SRC:.c=.o)
+
+# Name of the executable
+NAME = school
+
+all: $(OBJ)
+	$(CC) $^ -o $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
